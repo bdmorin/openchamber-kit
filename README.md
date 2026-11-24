@@ -45,7 +45,7 @@ bun scripts/publish.ts <mod>             # or --dry-run first
 
 The script runs the mod's checks and refuses if the committed bundles are out of date. It then adds a signed release commit to the mod's branch, tags it `<id>-v<version>`, and pushes `main`, the branch and the tag together.
 
-The repository lives on [Codeberg](https://codeberg.org/brahn/openchamber-kit), with a mirror on GitHub.
+The repository lives on [Codeberg](https://codeberg.org/brahn/openchamber-kit), with a read-only mirror at [github.com/bdmorin/openchamber-kit](https://github.com/bdmorin/openchamber-kit). Issues and pull requests go to Codeberg. Install URLs work from either host.
 
 ## License
 

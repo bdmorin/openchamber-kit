@@ -34,7 +34,9 @@ A `contributes.service` runs with the user's full OS permissions. Rules for one:
 
 ## Publishing
 
-- **Where it lives.** Codeberg is the primary remote: `ssh://git@codeberg.org/brahn/openchamber-kit.git`. A push mirror to GitHub is set up on Codeberg's side.
+- **Where it lives.** Codeberg is the primary remote: `ssh://git@codeberg.org/brahn/openchamber-kit.git`.
+- **GitHub mirror.** `github.com/bdmorin/openchamber-kit` mirrors it; issues and wiki are off there, and its homepage points to Codeberg. The mirroring is local: `origin` has two push URLs, Codeberg then GitHub, so every `git push`, including `scripts/publish.ts`, updates both. Fetch only from Codeberg. A clone made elsewhere needs `git remote set-url --add --push origin …` for both URLs to keep pushing to both.
+- **Unverified on GitHub.** Commits carry the Codeberg noreply address, which GitHub can't tie to an account. GitHub therefore shows them as unverified, although their signatures are valid. Codeberg shows them as Verified.
 - **Commit identity.** Commits use the Codeberg noreply identity and are SSH-signed. The user's `~/.gitconfig` sets both through `includeIf hasconfig:remote.*.url:…codeberg.org…`. Don't set `user.email` in this repo.
 - **Releases.** One branch per mod, named after its extension id; `scripts/publish.ts` creates them, and the root README explains the scheme. OpenChamber git installs take `<repo>.git#<branch-or-tag>` and can't point into a subfolder, which is why each mod gets its own branch.
 - **Listing.** The community directory is openchamber.dev/extensions. Submit an extension by emailing feedback@openchamber.dev with its name, repository URL, category and a one-line description.
