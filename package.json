@@ -1,0 +1,68 @@
+{
+  "name": "openchamber-mise-inspector",
+  "version": "0.3.0",
+  "description": "Read-only mise inspector: the active checkout's tasks, tools and config provenance, with pinned tasks in Work Status",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "Brian Morin (https://codeberg.org/brahn)",
+  "homepage": "https://codeberg.org/brahn/openchamber-kit/src/branch/main/mods/mise",
+  "repository": {
+    "type": "git",
+    "url": "https://codeberg.org/brahn/openchamber-kit.git",
+    "directory": "mods/mise"
+  },
+  "bugs": {
+    "url": "https://codeberg.org/brahn/openchamber-kit/issues"
+  },
+  "keywords": [
+    "openchamber",
+    "openchamber-extension",
+    "mise",
+    "mise-en-place",
+    "tasks",
+    "opencode"
+  ],
+  "openchamber": {
+    "apiVersion": 1,
+    "engines": {
+      "openchamber": ">=2.8.0"
+    },
+    "contributes": {
+      "panel": {
+        "id": "mise-inspector",
+        "name": "mise",
+        "icon": "icon.svg",
+        "entry": "panel/index.html"
+      },
+      "statusSection": {
+        "entry": "status/index.html",
+        "title": "Pinned mise tasks",
+        "height": 96,
+        "requiresProject": true
+      },
+      "service": {
+        "entry": "service/main.js",
+        "runtime": "host",
+        "permissions": {
+          "exec": [
+            "mise",
+            "git"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests",
+    "check": "bun run typecheck && bun run test && bun run build",
+    "preview": "bun run scripts/preview.ts"
+  },
+  "devDependencies": {
+    "@openchamber/sdk": "2.8.0",
+    "@types/bun": "^1.3.0",
+    "typescript": "^5.9.2"
+  }
+}
