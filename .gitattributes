@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+# Built bundles: hide from diffs and language stats.
+mods/*/panel/main.js linguist-generated=true -diff
+mods/*/status/main.js linguist-generated=true -diff
+mods/*/service/main.js linguist-generated=true -diff
+bun.lock linguist-generated=true

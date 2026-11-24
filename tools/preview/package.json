@@ -1,0 +1,14 @@
+{
+  "name": "openchamber-kit-preview",
+  "version": "0.1.0",
+  "description": "Renders a mod's frames against a mock OpenChamber host in headless Chromium",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "setup": "bun install && bunx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "1.65.1"
+  }
+}
